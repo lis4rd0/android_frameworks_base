@@ -302,8 +302,8 @@ public class RecentController implements RecentPanelView.OnExitListener,
      * External call. Preload recent tasks.
      */
     public void preloadRecentTasksList() {
-        if (DEBUG) Log.d(TAG, "preloading recents");
         if (mRecentPanelView != null) {
+            if (DEBUG) Log.d(TAG, "preloading recents");
             mIsPreloaded = true;
             mRecentPanelView.setCancelledByUser(false);
             mRecentPanelView.loadTasks();
@@ -314,8 +314,8 @@ public class RecentController implements RecentPanelView.OnExitListener,
      * External call. Cancel preload recent tasks.
      */
     public void cancelPreloadingRecentTasksList() {
-        if (DEBUG) Log.d(TAG, "cancel preloading recents");
-        if (mRecentPanelView != null) {
+        if (mRecentPanelView != null && !isShowing()) {
+            if (DEBUG) Log.d(TAG, "cancel preloading recents");
             mIsPreloaded = false;
             mRecentPanelView.setCancelledByUser(true);
         }
@@ -503,7 +503,7 @@ public class RecentController implements RecentPanelView.OnExitListener,
                     UserHandle.USER_CURRENT) / 100.0f;
 
             // If changed set new scalefactor, rebuild the recent panel
-            // and notify RecentPanelView and CacheController about new value.
+            // and notify RecentPanelView about new value.
             if (scaleFactor != mScaleFactor) {
                 mScaleFactor = scaleFactor;
                 rebuildRecentsScreen();
@@ -511,7 +511,6 @@ public class RecentController implements RecentPanelView.OnExitListener,
             if (mRecentPanelView != null) {
                 mRecentPanelView.setScaleFactor(mScaleFactor);
             }
-            CacheController.getInstance(mContext).setScaleFactor(mScaleFactor);
         }
     }
 
