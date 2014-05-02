@@ -3638,6 +3638,12 @@ public final class Settings {
         public static final String PEEK_STATE = "peek_state";
 
         /**
+         * Set the timeout of peek when pikcing up the device
+         * @hide
+         */
+        public static final String PEEK_PICKUP_TIMEOUT = "peek_pickup_timeout";
+
+        /**
          * Enables/disables lockscreen notifications
          * @hide
          */
