@@ -732,9 +732,6 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                     Settings.System.USE_EDGE_SERVICE_FOR_GESTURES), false, this,
                     UserHandle.USER_ALL);
             resolver.registerContentObserver(Settings.System.getUriFor(
-
-                    Settings.System.DEV_FORCE_SHOW_NAVBAR), false, this,
-
                     Settings.System.NAVIGATION_BAR_SHOW), false, this,
                     UserHandle.USER_ALL);
             resolver.registerContentObserver(Settings.System.getUriFor(
@@ -6311,7 +6308,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     }
 
     public boolean needsNavigationBar() {
-        return mHasNavigationBar;
+     
 
         return mOverWriteHasNavigationBar
             ? mHasNavigationBar
