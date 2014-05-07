@@ -334,7 +334,7 @@ public abstract class BaseStatusBar extends SystemUI implements
                         mContext.getContentResolver(), Settings.System.CUSTOM_RECENT_TOGGLE, false);
 
         if (mCustomRecent) {
-            slimRecents = new RecentController(mContext);
+            slimRecents = new RecentController(mContext, mLayoutDirection);
         } else {
             stockRecents = getComponent(RecentsComponent.class);
         }
@@ -342,7 +342,7 @@ public abstract class BaseStatusBar extends SystemUI implements
         mLocale = mContext.getResources().getConfiguration().locale;
         mLayoutDirection = TextUtils.getLayoutDirectionFromLocale(mLocale);
 
-        mRecents = new RecentController(mContext, mLayoutDirection);
+    
 
         mStatusBarContainer = new FrameLayout(mContext);
 
