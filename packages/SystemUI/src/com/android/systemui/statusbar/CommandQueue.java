@@ -104,8 +104,8 @@ public class CommandQueue extends IStatusBar.Stub {
         public void toggleQSShade();
         public void toggleScreenshot();
         public void toggleLastApp();
-   
-    
+        public void toggleKillApp();
+        public void togglePowerMenu();
         public void setButtonDrawable(int buttonId, int iconId);
     }
 
@@ -179,7 +179,7 @@ public class CommandQueue extends IStatusBar.Stub {
         }
     }
 
-    public void animateExpandSettingsPanel(boolean flip) {
+    public void animateExpandSettingsPanel() {
         synchronized (mList) {
             mHandler.removeMessages(MSG_EXPAND_SETTINGS);
             mHandler.sendEmptyMessage(MSG_EXPAND_SETTINGS);
