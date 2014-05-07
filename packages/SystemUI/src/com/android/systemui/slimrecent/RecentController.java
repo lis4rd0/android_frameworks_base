@@ -397,7 +397,7 @@ public class RecentController implements RecentPanelView.OnExitListener,
         if (DEBUG) Log.d(TAG, "in animation starting");
         mIsShowing = true;
 
-        sendCloseSystemWindows();
+ 
         mAnimationState = ANIMATION_STATE_NONE;
         mHandler.removeCallbacks(mRecentRunnable);
         CacheController.getInstance(mContext).setRecentScreenShowing(true);
