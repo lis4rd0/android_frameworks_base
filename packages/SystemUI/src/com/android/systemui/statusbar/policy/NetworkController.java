@@ -1542,6 +1542,7 @@ public class NetworkController extends BroadcastReceiver implements DemoMode {
             }
         }
 
+
         // Update the dependency UI
         if (mUpdateUIListener != null) {
             mUpdateUIListener.onUpdateUI();
